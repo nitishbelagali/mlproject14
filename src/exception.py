@@ -32,11 +32,4 @@ class CustomException(Exception):
         return self.error_message
 
 
-if __name__ == "__main__":
 
-    try:
-        # Intentionally cause an exception
-        a = 1 / 0
-    except Exception as e:
-        logging.info("Divide by zero error caught")
-        raise CustomException(e, sys)  # Raise the custom exception
