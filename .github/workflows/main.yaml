@@ -84,6 +84,10 @@ jobs:
       - name: Pull latest images
         run: |
           docker pull ${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
+
+      - name: Clean previous images and containers
+        run: |
+          docker system prune -f
          
       - name: Run Docker Image to serve users
         run: |
@@ -96,3 +100,5 @@ jobs:
       - name: Clean previous images and containers
         run: |
           docker system prune -f
+
+      
